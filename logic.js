@@ -58,7 +58,6 @@ alarmButton.onclick = () => {
           alarm = ringtone;
         }
         alarm.play();
-        alarm.setAttribute("loop", true);
 
         const clearAlarmButton = document.createElement("button");
         clearAlarmButton.innerText = "Clear Alarm";
