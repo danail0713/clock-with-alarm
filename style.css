@@ -1,0 +1,68 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#timeBox {
+  border: 2px solid;
+  width: 500px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.alarmButton {
+  margin-top: 20px;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#activate {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+  border: 2px solid;
+  font-size: 25px;
+  width: 500px;
+  height: 50px;
+}
+
+#clock {
+  font-size: 80px;
+}
+
+#date {
+  font-size: 30px;
+}
+
+#alarmTime {
+  margin-right: 15px; 
+  margin-left: 15px;
+  size: 20px;
+}
+
+#checkAudio {
+  vertical-align: middle; 
+  position: relative; 
+  bottom: 1px;
+}
+
+#audio {
+  display: block; 
+}
+
+
+
+

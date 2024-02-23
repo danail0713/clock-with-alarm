@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div id="container">
+      <div id="timeBox">
+        <div>
+          <label id="clock"></label> <br/>
+          <label id="date"></label>
+        </div>
+      </div>
+      <button class="alarmButton" id="setAlarm">Set alarm</button>
+    </div>
+    
+    <audio id="vibration">
+      <source src="./sound files/vibration.mp3" type="audio/mp3">
+    </audio>
+    <audio id="ringtone">
+      <source src="./sound files/edm.mp3" type="audio/mp3">
+    </audio>
+    <script src="logic.js"></script>
+  </body>
+</html>
