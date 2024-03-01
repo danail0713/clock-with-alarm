@@ -6,11 +6,13 @@ const ringtone = document.getElementById("ringtone");
 
 setInterval(() => {
   const today = new Date();
-  const todayAsClock = today.toLocaleTimeString("en-US", { hour12: false }); // the current time in format H:m:s
+  const todayAsClock = today.toLocaleTimeString("en-US", {
+    hour12: false
+  }); // the current time in format H:m:s
   const todayAsDate = today.toLocaleString("en-US", {
     year: "numeric",
     month: "long",
-    day: "numeric",
+    day: "2-digit",
   });
   clock.innerText = todayAsClock;
   date.innerText = todayAsDate;
