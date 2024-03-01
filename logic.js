@@ -3,6 +3,7 @@ const date = document.getElementById("date");
 const alarmButton = document.getElementById("setAlarm");
 const vibration = document.getElementById("vibration");
 const ringtone = document.getElementById("ringtone");
+
 setInterval(() => {
   const today = new Date();
   const todayAsClock = today.toLocaleTimeString("en-US", { hour12: false }); // the current time in format H:m:s
@@ -40,7 +41,6 @@ alarmButton.onclick = () => {
 
   // Display an alert message with the time the alarm must be activated
   activateButton.onclick = () => {
-    timeInput.onchange
     const alarmTime = timeInput.value;
     const currentTime = new Date();
     const alarmDate = new Date(
@@ -51,24 +51,24 @@ alarmButton.onclick = () => {
     if (currentTime < alarmDate) {
       alert(`Alarm set for ${alarmDate}`);
       let alarm;
-      setTimeout(() => {
-        if (checkbox.checked == false) {
-          alarm = vibration;
-        } else {
-          alarm = ringtone;
-        }
+      const clearAlarmButton = document.createElement("button");
+      clearAlarmButton.innerText = "Clear Alarm";
+      clearAlarmButton.setAttribute("class", "alarmButton");
+      alarmOptions.replaceWith(clearAlarmButton);
+      if (checkbox.checked == false) {
+        alarm = vibration;
+      } else {
+        alarm = ringtone;
+      }
+      const alarmTimer = setTimeout(() => {
         alarm.play();
-
-        const clearAlarmButton = document.createElement("button");
-        clearAlarmButton.innerText = "Clear Alarm";
-        clearAlarmButton.setAttribute("class", "alarmButton");
-        alarmOptions.replaceWith(clearAlarmButton);
-        clearAlarmButton.onclick = () => {
-          clearAlarmButton.replaceWith(alarmButton);
-          alarm.pause();
-          alarm.currentTime = 0;
-        };
       }, alarmDate.getTime() - new Date().getTime());
+      clearAlarmButton.onclick = () => {
+        clearAlarmButton.replaceWith(alarmButton);
+        alarm.pause();
+        alarm.currentTime = 0;
+        clearTimeout(alarmTimer);
+      };
     } else {
       alert(
         "The time for the alarm is before or is the same with the current time."
